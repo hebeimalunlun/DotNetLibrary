@@ -7,5 +7,15 @@ pipeline {
                 dotnetBuild configuration: 'Release'
             }
         }
+        stage('Pack') {
+            steps {
+                dotnetPack
+            }
+        }
+        stage('Deploy') {
+            steps {
+                dotnetNuGetPush
+            }
+        }
     }
 }
