@@ -9,12 +9,16 @@ pipeline {
         }
         stage('Pack') {
             steps {
-                dotnetPack
+                script {
+                    dotnetPack
+                 }
             }
         }
         stage('Deploy') {
             steps {
-                dotnetNuGetPush
+                 script {
+                     dotnetNuGetPush
+                 }
             }
         }
     }
