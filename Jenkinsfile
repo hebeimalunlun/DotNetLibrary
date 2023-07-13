@@ -5,20 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 dotnetBuild configuration: 'Release'
-            }
-        }
-        stage('Pack') {
-            steps {
-                script {
-                    dotnetPack
-                 }
-            }
-        }
-        stage('Deploy') {
-            steps {
-                 script {
-                     dotnetNuGetPush
-                 }
+                dotnetPack
+                dotnetNuGetPush
             }
         }
     }
