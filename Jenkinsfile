@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script{
                 dotnetBuild configuration: 'Release'
-                dotnetPack
+                dotnetPack configuration: 'Release'
                 dotnetNuGetPush
                 }
             }
